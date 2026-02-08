@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+.env
+
+# OS files
+.DS_Store
+
+# Model & checkpoints 
+model/
+**/model_out/
+**/checkpoint-*/
+*.safetensors
+*.bin
+
+# Datasets & results
+data/
+*.csv
+results.zip
