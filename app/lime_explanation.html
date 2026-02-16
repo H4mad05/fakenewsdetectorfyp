@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divH6OY9ESCHU984SA"></div>
+        <div class="lime top_div" id="top_div0JNT0PG9HO1K197"></div>
         
         <script>
-        var top_div = d3.select('#top_divH6OY9ESCHU984SA').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0JNT0PG9HO1K197').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Real News", "Fake News", "Satire"], [0.00013714221131522208, 2.2892987544764765e-05, 0.9998399019241333]);
+            var pp = new lime.PredictProba(pp_svg, ["Fake News", "Satire", "Real News"], [0.28895190358161926, 0.0017462490359321237, 0.7093018293380737]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["Real News", "Fake News", "Satire"]);
+            var exp = new lime.Explanation(["Fake News", "Satire", "Real News"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["The", -3.962596659779556e-05], ["reducing", 1.1964297480643737e-05], ["and", 8.969225542867606e-06], ["reforms", 8.734215929579818e-06], ["economic", 8.531994937210703e-06], ["government", 8.344526497551586e-06], ["announced", 7.818364051978869e-06], ["stabilising", 7.628780880840126e-06], ["new", 7.540328118858944e-06], ["inflation", 6.868094875197474e-06], ["at", 6.200204283648345e-06], ["markets", 5.348475223485881e-06]], 1, exp_div);
+                exp.show([["Government", -0.025474090824447092], ["public", 0.009281382985473286], ["secretly", 0.009275096997330477], ["weather", 0.008494746696769282], ["hides", 0.008096315412018796], ["proof", 0.007625072479202821], ["from", 0.007543493112017625], ["the", 0.007416877387445693], ["and", 0.007170269449352255], ["controls", 0.006609528706750693]], 2, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["The", 0, -3.962596659779556e-05], ["reducing", 55, 1.1964297480643737e-05], ["and", 74, 8.969225542867606e-06], ["reforms", 38, 8.734215929579818e-06], ["economic", 29, 8.531994937210703e-06], ["government", 4, 8.344526497551586e-06], ["announced", 15, 7.818364051978869e-06], ["stabilising", 78, 7.628780880840126e-06], ["new", 25, 7.540328118858944e-06], ["inflation", 64, 6.868094875197474e-06], ["at", 52, 6.200204283648345e-06], ["markets", 90, 5.348475223485881e-06]], 1, "The government announced new economic reforms aimed at reducing inflation and stabilising markets.", raw_div, true);
+            exp.show_raw_text([["Government", 0, -0.025474090824447092], ["public", 66, 0.009281382985473286], ["secretly", 11, 0.009275096997330477], ["weather", 33, 0.008494746696769282], ["hides", 45, 0.008096315412018796], ["proof", 51, 0.007625072479202821], ["from", 57, 0.007543493112017625], ["the", 29, 0.007416877387445693], ["the", 62, 0.007416877387445693], ["and", 41, 0.007170269449352255], ["controls", 20, 0.006609528706750693]], 2, "Government secretly controls the weather and hides proof from the public", raw_div, true);
             
         </script>
         </body></html>

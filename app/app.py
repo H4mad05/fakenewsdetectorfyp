@@ -2,26 +2,26 @@ import os
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-# -------------------------
+
 # 1) Resolve local model path safely
-# -------------------------
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  
 MODEL_PATH = os.path.join(BASE_DIR, "..", "model", "model_out")
 
-# -------------------------
+
 # 2) Load tokenizer + model 
-# -------------------------
+
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, local_files_only=True)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH, local_files_only=True)
 model.eval()
 
-# If you have GPU 
+ 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-# -------------------------
+
 # 3) Label mapping 
-# -------------------------
+
 LABELS = {
     0: "Real News",
     1: "Fake News",
@@ -66,3 +66,5 @@ if __name__ == "__main__":
         print(f"\nPrediction: {label}")
         print(f"Confidence: {conf:.4f}")
         print(f"All probs: {all_probs}\n")
+
+print("Label mapping:", model.config.id2label)
