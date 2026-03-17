@@ -114,7 +114,7 @@ def explain_with_lime(text, num_features=15, num_samples=2000):
 
 def main():
     print("\nLIME Explainability Module")
-    print("Type text to explain (or 'exit')")
+    print("Type text to explain")
 
     while True:
         text = input("\nText: ").strip()

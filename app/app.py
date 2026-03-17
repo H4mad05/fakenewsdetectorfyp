@@ -23,9 +23,9 @@ model.to(device)
 # 3) Label mapping 
 
 LABELS = {
-    0: "Real News",
-    1: "Fake News",
-    2: "Satire"
+    0: "Fake News",
+    1: "Satire",
+    2: "Real News"
 }
 
 def predict(text: str):
@@ -52,7 +52,7 @@ def predict(text: str):
 # 4) Simple CLI test loop
 
 if __name__ == "__main__":
-    print("✅ Model loaded from:", os.path.abspath(MODEL_PATH))
+    print(" Model loaded from:", os.path.abspath(MODEL_PATH))
     print("Type text to classify. Type 'exit' to quit.\n")
 
     while True:
