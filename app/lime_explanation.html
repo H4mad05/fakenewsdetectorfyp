@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divCXYC1XFX6VXZGB7"></div>
+        <div class="lime top_div" id="top_divZ6DFS0P75JU8E8Z"></div>
         
         <script>
-        var top_div = d3.select('#top_divCXYC1XFX6VXZGB7').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZ6DFS0P75JU8E8Z').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Fake News", "Satire", "Real News"], [0.9718489050865173, 0.024393297731876373, 0.003757786238566041]);
+            var pp = new lime.PredictProba(pp_svg, ["Fake News", "Satire", "Real News"], [0.8330588936805725, 0.16163885593414307, 0.005302283447235823]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["Fake News", "Satire", "Real News"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["There", 0.008809034785382029], ["head", -0.002444862403579105], ["big", -0.002390542587133768], ["speculation", -0.0020783372635526775], ["has", -0.001961009575724596], ["is", -0.0018694680273337449], ["donald", -0.001761223151273597], ["a", -0.0016043889828131913], ["that", -0.0015207302630203324], ["trump", -0.0013915163114097994]], 0, exp_div);
+                exp.show([["Breaking", 0.014425601331661663], ["as", -0.0041392830143229765], ["of", -0.0031006879583824996], ["donald", -0.0028098098779866386], ["one", -0.0026400993097487704], ["been", -0.002575010361700792], ["for", -0.002569406829433616], ["the", -0.002321676650256054], ["has", -0.002261496807457418], ["selected", -0.0022541668226802613], ["swimmers", -0.0019072198205720265], ["olympics", -0.0018330267101989784], ["trump", -0.0014712954782937547]], 0, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_text([["There", 0, 0.008809034785382029], ["head", 51, -0.002444862403579105], ["big", 47, -0.002390542587133768], ["speculation", 11, -0.0020783372635526775], ["has", 41, -0.001961009575724596], ["is", 6, -0.0018694680273337449], ["donald", 28, -0.001761223151273597], ["a", 9, -0.0016043889828131913], ["a", 45, -0.0016043889828131913], ["that", 23, -0.0015207302630203324], ["trump", 35, -0.0013915163114097994]], 0, "There is a speculation that donald trump has a big head", raw_div, true);
+            exp.show_raw_text([["Breaking", 0, 0.014425601331661663], ["as", 40, -0.0041392830143229765], ["of", 47, -0.0031006879583824996], ["donald", 9, -0.0028098098779866386], ["one", 43, -0.0026400993097487704], ["been", 26, -0.002575010361700792], ["for", 63, -0.002569406829433616], ["the", 50, -0.002321676650256054], ["the", 67, -0.002321676650256054], ["has", 22, -0.002261496807457418], ["selected", 31, -0.0022541668226802613], ["swimmers", 54, -0.0019072198205720265], ["olympics", 71, -0.0018330267101989784], ["trump", 16, -0.0014712954782937547]], 0, "Breaking donald trump has been selected as one of the swimmers for the olympics", raw_div, true);
             
         </script>
         </body></html>

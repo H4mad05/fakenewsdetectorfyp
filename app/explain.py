@@ -23,10 +23,9 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, local_files_only=True)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH, local_files_only=True)
 model.eval()
 
-# Fast device for normal single predictions
+
 FAST_DEVICE = torch.device(
     "mps" if torch.backends.mps.is_available()
-    else "cuda" if torch.cuda.is_available()
     else "cpu"
 )
 model.to(FAST_DEVICE)
@@ -36,7 +35,6 @@ LIME_DEVICE = torch.device("cpu")
 
 
 def predict_proba(texts, device=FAST_DEVICE, max_length=25):
-    """Return probabilities array shape (n, num_classes)."""
     enc = tokenizer(
         texts,
         return_tensors="pt",
@@ -52,11 +50,7 @@ def predict_proba(texts, device=FAST_DEVICE, max_length=25):
     return probs
 
 
-def predict_proba_for_lime(texts, batch_size=16, max_length=128):
-    """
-    LIME calls this many times with many perturbed samples.
-    Force CPU + batching to prevent MPS/CUDA OOM.
-    """
+def predict_proba_for_lime(texts, batch_size=16, max_length=25):
     # temporarily move model to CPU for LIME
     original_device = next(model.parameters()).device
     if original_device.type != "cpu":
@@ -84,8 +78,8 @@ explainer = LimeTextExplainer(class_names=LABELS, split_expression=r"\W+")
 
 
 def explain_with_lime(text, num_features=15, num_samples=2000):
-    # normal prediction (fast device)
-    probs = predict_proba([text], device=FAST_DEVICE, max_length=256)[0]
+    # normal prediction 
+    probs = predict_proba([text], device=FAST_DEVICE, max_length=128)[0]
     pred_idx = int(np.argmax(probs))
 
     print("\nPrediction:", LABELS[pred_idx])
@@ -93,7 +87,7 @@ def explain_with_lime(text, num_features=15, num_samples=2000):
     for i, name in enumerate(LABELS):
         print(f"  {name}: {probs[i]:.3f}")
 
-    # explain predicted class only (more stable + faster)
+    # explain predicted class only 
     exp = explainer.explain_instance(
         text_instance=text,
         classifier_fn=predict_proba_for_lime,
@@ -113,8 +107,8 @@ def explain_with_lime(text, num_features=15, num_samples=2000):
 
 
 def main():
-    print("\nLIME Explainability Module")
-    print("Type text to explain")
+    print("\nLIME Explainability")
+    print("Enter the text for explaination")
 
     while True:
         text = input("\nText: ").strip()
@@ -130,10 +124,10 @@ def main():
             explain_with_lime(text)
         except RuntimeError as e:
             # common: MPS/CUDA OOM or similar
-            print(f"⚠️ Runtime error: {e}")
+            print(f"Runtime error: {e}")
             print("Tip: try smaller num_samples (e.g., 1000) or shorter text.")
         except Exception as e:
-            print(f"⚠️ LIME failed for this input: {e}")
+            print(f"LIME failed for this input: {e}")
             print("Try a longer/cleaner text and run again.")
 
 
